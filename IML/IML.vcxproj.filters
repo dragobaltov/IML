@@ -13,10 +13,69 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\AggTags">
+      <UniqueIdentifier>{e607b16e-8fec-48f0-975a-25b3eaba72f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MapTags">
+      <UniqueIdentifier>{7aa911c7-1a80-41d5-be33-1f0dc35be1d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BaseTags">
+      <UniqueIdentifier>{38829923-a9b0-476d-8324-1f96aba7fde5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SrtTags">
+      <UniqueIdentifier>{55944094-742d-4e23-92fc-d3790a66da94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IML.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tag.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AggAvgTag.h">
+      <Filter>Header Files\AggTags</Filter>
+    </ClInclude>
+    <ClInclude Include="AggFstTag.h">
+      <Filter>Header Files\AggTags</Filter>
+    </ClInclude>
+    <ClInclude Include="AggLstTag.h">
+      <Filter>Header Files\AggTags</Filter>
+    </ClInclude>
+    <ClInclude Include="AggProTag.h">
+      <Filter>Header Files\AggTags</Filter>
+    </ClInclude>
+    <ClInclude Include="AggSumTag.h">
+      <Filter>Header Files\AggTags</Filter>
+    </ClInclude>
+    <ClInclude Include="MapIncTag.h">
+      <Filter>Header Files\MapTags</Filter>
+    </ClInclude>
+    <ClInclude Include="MapMltTag.h">
+      <Filter>Header Files\MapTags</Filter>
+    </ClInclude>
+    <ClInclude Include="AggTag.h">
+      <Filter>Header Files\BaseTags</Filter>
+    </ClInclude>
+    <ClInclude Include="MapTag.h">
+      <Filter>Header Files\BaseTags</Filter>
+    </ClInclude>
+    <ClInclude Include="SrtTag.h">
+      <Filter>Header Files\BaseTags</Filter>
+    </ClInclude>
+    <ClInclude Include="SrtRevTag.h">
+      <Filter>Header Files\SrtTags</Filter>
+    </ClInclude>
+    <ClInclude Include="SrtOrdTag.h">
+      <Filter>Header Files\SrtTags</Filter>
+    </ClInclude>
+    <ClInclude Include="SrtSlcTag.h">
+      <Filter>Header Files\SrtTags</Filter>
+    </ClInclude>
+    <ClInclude Include="SrtDstTag.h">
+      <Filter>Header Files\SrtTags</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

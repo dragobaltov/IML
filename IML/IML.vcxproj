@@ -141,6 +141,23 @@
   <ItemGroup>
     <ClCompile Include="IML.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AggAvgTag.h" />
+    <ClInclude Include="AggFstTag.h" />
+    <ClInclude Include="AggLstTag.h" />
+    <ClInclude Include="AggProTag.h" />
+    <ClInclude Include="AggSumTag.h" />
+    <ClInclude Include="AggTag.h" />
+    <ClInclude Include="MapIncTag.h" />
+    <ClInclude Include="MapMltTag.h" />
+    <ClInclude Include="MapTag.h" />
+    <ClInclude Include="SrtDstTag.h" />
+    <ClInclude Include="SrtOrdTag.h" />
+    <ClInclude Include="SrtRevTag.h" />
+    <ClInclude Include="SrtSlcTag.h" />
+    <ClInclude Include="SrtTag.h" />
+    <ClInclude Include="Tag.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
