@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IML.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="StringTags.cpp" />
+    <ClCompile Include="TagsFactory.cpp" />
+    <ClCompile Include="Validator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AggAvgTag.h" />
@@ -151,12 +155,16 @@
     <ClInclude Include="MapIncTag.h" />
     <ClInclude Include="MapMltTag.h" />
     <ClInclude Include="MapTag.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="SrtDstTag.h" />
     <ClInclude Include="SrtOrdTag.h" />
     <ClInclude Include="SrtRevTag.h" />
     <ClInclude Include="SrtSlcTag.h" />
     <ClInclude Include="SrtTag.h" />
+    <ClInclude Include="StringTags.h" />
     <ClInclude Include="Tag.h" />
+    <ClInclude Include="TagsFactory.h" />
+    <ClInclude Include="Validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

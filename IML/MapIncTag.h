@@ -10,4 +10,11 @@ protected:
 	{
 		return x + y;
 	}
+public:
+	MapIncTag(double number) : MapTag(number) {}
+
+	virtual bool closingTagIsValid(const std::string& tag) override
+	{
+		return tag == StringTags::MAP_INC;
+	}
 };

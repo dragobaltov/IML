@@ -5,13 +5,15 @@
 class MapTag : public Tag
 {
 private:
-	std::list<double> map(const std::list<double>& data, double additional)
+	double m_number;
+
+	std::vector<double> map(const std::vector<double>& data)
 	{
-		std::list<double> result;
+		std::vector<double> result;
 
 		for (auto it = data.begin(); it != data.end(); ++it)
 		{
-			result.push_back(mappingFunc(*it, additional));
+			result.push_back(mappingFunc(*it, m_number));
 		}
 
 		return result;
@@ -19,11 +21,14 @@ private:
 protected:
 	virtual double mappingFunc(double x, double y) = 0;
 public:
-	// Inherited via Tag
-	virtual std::list<double> evaluate(const std::list<double>& data, const std::string& additional) override
+	MapTag(double number)
 	{
-		double additionalArg = std::stod(additional);
+		m_number = number;
+	}
 
-		return map(data, additionalArg);
+	// Inherited via Tag
+	virtual std::vector<double> evaluate(const std::vector<double>& data) override
+	{
+		return map(data);
 	}
 };

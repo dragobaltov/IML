@@ -9,4 +9,11 @@ protected:
 	{
 		return x * y;
 	}
+public:
+	MapMltTag(double number) : MapTag(number) {}
+
+	virtual bool closingTagIsValid(const std::string& tag) override
+	{
+		return tag == StringTags::MAP_MLT;
+	}
 };

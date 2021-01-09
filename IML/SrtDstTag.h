@@ -5,11 +5,17 @@
 /*! Returns distinct elements of the given list*/
 class SrtDstTag : public SrtTag
 {
-	virtual std::list<double> sort(const std::list<double>& data, const std::string& additional = "") override
+	virtual std::vector<double> sort(const std::vector<double>& data) override
 	{
 		std::unordered_set<double> distinct(data.begin(), data.end());
-		std::list<double> result(distinct.begin(), distinct.end());
+		std::vector<double> result(distinct.begin(), distinct.end());
 
 		return result;
+	}
+
+public:
+	virtual bool closingTagIsValid(const std::string& tag) override
+	{
+		return tag == StringTags::SRT_DST;
 	}
 };

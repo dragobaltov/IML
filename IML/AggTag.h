@@ -4,13 +4,13 @@
 class AggTag : public Tag
 {
 protected:
-	virtual double aggregate(const std::list<double>& data) = 0;
+	virtual double aggregate(const std::vector<double>& data) = 0;
 public:
-	virtual std::list<double> evaluate(const std::list<double>& data, const std::string& additional) override
+	virtual std::vector<double> evaluate(const std::vector<double>& data) override
 	{
 		double result = aggregate(data);
 
-		std::list<double> resultList;
+		std::vector<double> resultList;
 		resultList.push_back(result);
 
 		return resultList;

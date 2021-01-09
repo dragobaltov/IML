@@ -4,10 +4,10 @@
 class SrtTag : public Tag
 {
 protected:
-	virtual std::list<double> sort(const std::list<double>& data, const std::string& additional = "") = 0;
+	virtual std::vector<double> sort(const std::vector<double>& data) = 0;
 public:
-	virtual std::list<double> evaluate(const std::list<double>& data, const std::string& additional = "") override
+	virtual std::vector<double> evaluate(const std::vector<double>& data) override
 	{
-		return sort(data, additional);
+		return sort(data);
 	}
 };

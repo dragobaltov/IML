@@ -1,15 +1,11 @@
 #pragma once
-#include <list>
+#include <vector>
 #include <string>
+#include "StringTags.h"
 
 class Tag
 {
-private:
-	// function to validate additional parameters?
 public:
-	/*
-	* 1. May wanna work with other data types -> template
-	* 2. May wanna receive more than one additional parameter -> receive list of strings
-	*/
-	virtual std::list<double> evaluate(const std::list<double>& data, const std::string& additional = "") = 0;
+	virtual bool closingTagIsValid(const std::string&) = 0;
+	virtual std::vector<double> evaluate(const std::vector<double>& data) = 0;
 };

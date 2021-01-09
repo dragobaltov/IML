@@ -1,25 +1,39 @@
 #pragma once
 #include "SrtTag.h"
+#include <algorithm>
 
-/*! Sorts the list in ascending order(if the given parameter is ASC) or
-* in descending order(if the given parameter is DSC) 
+/*! 
+* Sorts the list in ascending order(if the given parameter is ASC) or
+* in descending order(if the given parameter is DSC).
 */
 class SrtOrdTag : public SrtTag
 {
+private:
+	std::string m_order;
 protected:
-	virtual std::list<double> sort(const std::list<double>& data, const std::string& additional) override
+	virtual std::vector<double> sort(const std::vector<double>& data) override
 	{
-		std::list<double> result = data;
+		std::vector<double> result = data;
 
-		if (additional == "ASC")
+		if (m_order == "ASC")
 		{
-			result.sort();
+			std::sort(result.begin(), result.end());
 		}
-		else
+		else if(m_order == "DSC")
 		{
-			result.sort(std::greater<double>());
+			std::sort(result.begin(), result.end(), std::greater<double>());
 		}
 
 		return result;
+	}
+public:
+	SrtOrdTag(const std::string& order)
+	{
+		m_order = order;
+	}
+
+	virtual bool closingTagIsValid(const std::string& tag) override
+	{
+		return tag == StringTags::SRT_ORD;
 	}
 };

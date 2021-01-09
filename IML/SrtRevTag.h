@@ -5,9 +5,9 @@
 class SrtRevTag : public SrtTag
 {
 protected:
-	virtual std::list<double> sort(const std::list<double>& data, const std::string& additional = "") override
+	virtual std::vector<double> sort(const std::vector<double>& data) override
 	{
-		std::list<double> result;
+		std::vector<double> result;
 		auto begin = data.begin();
 		auto end = data.end();
 
@@ -20,5 +20,10 @@ protected:
 		}
 
 		return result;
+	}
+public:
+	virtual bool closingTagIsValid(const std::string& tag) override
+	{
+		return tag == StringTags::SRT_REV;
 	}
 };

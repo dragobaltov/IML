@@ -1,29 +1,17 @@
 ﻿#include <iostream>
-#include "MapIncTag.h"
-#include "MapMltTag.h"
-#include "AggSumTag.h"
-#include "AggProTag.h"
-#include "SrtOrdTag.h"
-#include "SrtSlcTag.h"
-#include "SrtDstTag.h"
-#include <unordered_set>
+#include "Parser.h"
 
 int main()
 {
-    SrtTag* inc = new SrtDstTag();
-    std::list<double> lst;
-    lst.push_back(5);
-    lst.push_back(3);
-    lst.push_back(5);
-    lst.push_back(12);
-    lst.push_back(7);
-    lst.push_back(7);
-    lst.push_back(12);
+	std::vector<std::string> v = {"SRT-ORD", "\"ASC\"", "81", "3", "MAP-INC", "\"1\"", "4", "12", "55",
+								  "AGG-AVG", "4", "8", "/AGG-AVG", "/MAP-INC", "22", "/SRT-ORD"};
 
+	std::vector<std::string> v1 = {"SRT-DST", "SRT-SLC", "\"3\"", "57", "18", "9",
+								   "MAP-INC", "\"-3\"", "4", "2", "2", "/MAP-INC",
+								   "5", "/SRT-SLC", "/SRT-DST"};
 
-
-    std::list<double> res = inc->evaluate(lst, "40");
-    std::unordered_set<double> dst(lst.begin(), lst.end());
-    std::list<double> lst2(dst.begin(), dst.end());
-
+	Parser p = Parser();
+	std::vector<double> result = p.parse(v1);
+	//slice tag reordering nums
+	return 0;
 }

@@ -4,7 +4,7 @@
 class AggProTag : public AggTag
 {
 protected:
-	virtual double aggregate(const std::list<double>& data) override
+	virtual double aggregate(const std::vector<double>& data) override
 	{
 		double result = 1;
 
@@ -12,5 +12,10 @@ protected:
 			result *= *it;
 
 		return result;
+	}
+public:
+	virtual bool closingTagIsValid(const std::string& tag) override
+	{
+		return tag == StringTags::AGG_PRO;
 	}
 };
