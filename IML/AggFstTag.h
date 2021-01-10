@@ -9,8 +9,8 @@ protected:
 		return data.front();
 	}
 public:
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::AGG_FST;
+		return tag == '/' + StringTags::AGG_FST;
 	}
 };

@@ -22,8 +22,8 @@ protected:
 		return result;
 	}
 public:
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::SRT_REV;
+		return tag == '/' + StringTags::SRT_REV;
 	}
 };

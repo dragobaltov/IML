@@ -1,2 +1,11 @@
-﻿  IML.cpp
+﻿  Engine.cpp
+  IML.cpp
+  Parser.cpp
+C:\Users\ДрагомирБалтов00\source\repos\IML\IML\TagsFactory.h(9,2): warning C4091: 'static ': ignored on left of 'TagsFactory' when no variable is declared
+C:\Users\ДрагомирБалтов00\source\repos\IML\IML\Validator.h(17,2): warning C4091: 'static ': ignored on left of 'Validator' when no variable is declared
+  TagsFactory.cpp
+C:\Users\ДрагомирБалтов00\source\repos\IML\IML\TagsFactory.h(9,2): warning C4091: 'static ': ignored on left of 'TagsFactory' when no variable is declared
+C:\Users\ДрагомирБалтов00\source\repos\IML\IML\SrtSlcTag.h(12,15): warning C4018: '>=': signed/unsigned mismatch
+C:\Users\ДрагомирБалтов00\source\repos\IML\IML\Validator.h(17,2): warning C4091: 'static ': ignored on left of 'Validator' when no variable is declared
+  Generating Code...
   IML.vcxproj -> C:\Users\ДрагомирБалтов00\source\repos\IML\Debug\IML.exe

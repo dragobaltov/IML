@@ -14,8 +14,8 @@ protected:
 		return result;
 	}
 public:
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::AGG_SUM;
+		return tag == '/' + StringTags::AGG_SUM;
 	}
 };

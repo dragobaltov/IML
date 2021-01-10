@@ -12,8 +12,8 @@ protected:
 public:
 	MapMltTag(double number) : MapTag(number) {}
 
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::MAP_MLT;
+		return tag == '/' + StringTags::MAP_MLT;
 	}
 };

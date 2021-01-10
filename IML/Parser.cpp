@@ -1,6 +1,13 @@
 #include "Parser.h"
 #include "TagsFactory.h"
 #include "Validator.h"
+#include <exception>
+
+void Parser::deleteTag()
+{
+	delete tagsStack.top();
+	tagsStack.pop();
+}
 
 std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 {
@@ -20,7 +27,7 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 		{
 			if (i == tokensSize - 1)
 			{
-				// throw error
+				throw std::exception("Missing tag argument!");
 			}
 
 			Tag* tag = TagsFactory::createTagWithParam(tokens[i], tokens[i + 1]);
@@ -48,13 +55,22 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 		}
 		else if (Validator::isClosingTag(tokens[i]))
 		{
-			if (tagsStack.empty() || numsStack.empty() || !tagsStack.top()->closingTagIsValid(tokens[i]))
+			if (tagsStack.empty())
 			{
-				// throw error
+				throw std::exception("Closing tag missing opening tag!");
 			}
+			if (!tagsStack.top()->closingTagIsValid(tokens[i]))
+			{
+				throw std::exception("Invalid closing tag!");
+			}
+			if (numsStack.empty())
+			{
+				throw std::exception("No input numbers provided!");
+			}
+			
 
 			std::vector<double> result = tagsStack.top()->evaluate(numsStack.top());
-			tagsStack.pop();
+			deleteTag();
 			numsStack.pop();
 
 			if (numsStack.empty())
@@ -70,13 +86,13 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 		}
 		else
 		{
-			//throw error
+			throw std::exception("Invalid input!");
 		}
 	}
 
 	if (!tagsStack.empty() || numsStack.size() != 1)
 	{
-		// throw error
+		throw std::exception("Invalid input!");
 	}
 
 	return numsStack.top();

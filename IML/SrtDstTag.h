@@ -2,7 +2,7 @@
 #include "SrtTag.h"
 #include <unordered_set>
 
-/*! Returns distinct elements of the given list*/
+/*! Returns distinct elements of the given vector*/
 class SrtDstTag : public SrtTag
 {
 	virtual std::vector<double> sort(const std::vector<double>& data) override
@@ -14,8 +14,8 @@ class SrtDstTag : public SrtTag
 	}
 
 public:
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::SRT_DST;
+		return tag == '/' + StringTags::SRT_DST;
 	}
 };

@@ -31,8 +31,8 @@ public:
 		m_index = index;
 	}
 
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::SRT_SLC;
+		return tag == '/' + StringTags::SRT_SLC;
 	}
 };

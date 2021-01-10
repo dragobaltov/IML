@@ -14,8 +14,8 @@ protected:
 		return result / data.size();
 	}
 public:
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::AGG_AVG;
+		return tag == '/' + StringTags::AGG_AVG;
 	}
 };

@@ -32,8 +32,8 @@ public:
 		m_order = order;
 	}
 
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::SRT_ORD;
+		return tag == '/' + StringTags::SRT_ORD;
 	}
 };

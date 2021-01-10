@@ -6,6 +6,6 @@
 class Tag
 {
 public:
-	virtual bool closingTagIsValid(const std::string&) = 0;
+	virtual bool closingTagIsValid(const std::string& tag) const = 0;
 	virtual std::vector<double> evaluate(const std::vector<double>& data) = 0;
 };

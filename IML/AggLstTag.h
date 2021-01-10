@@ -9,8 +9,8 @@ protected:
 		return data.back();
 	}
 public:
-	virtual bool closingTagIsValid(const std::string& tag) override
+	virtual bool closingTagIsValid(const std::string& tag) const override
 	{
-		return tag == StringTags::AGG_LST;
+		return tag == '/' + StringTags::AGG_LST;
 	}
 };

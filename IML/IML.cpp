@@ -1,9 +1,11 @@
 ﻿#include <iostream>
+#include "Engine.h"
+#include "Tokenizer.h"
 #include "Parser.h"
 
 int main()
 {
-	std::vector<std::string> v = {"SRT-ORD", "\"ASC\"", "81", "3", "MAP-INC", "\"1\"", "4", "12", "55",
+	/*std::vector<std::string> v = {"SRT-ORD", "\"ASC\"", "81", "3", "MAP-INC", "\"1\"", "4", "12", "55",
 								  "AGG-AVG", "4", "8", "/AGG-AVG", "/MAP-INC", "22", "/SRT-ORD"};
 
 	std::vector<std::string> v1 = {"SRT-DST", "SRT-SLC", "\"3\"", "57", "18", "9",
@@ -11,7 +13,15 @@ int main()
 								   "5", "/SRT-SLC", "/SRT-DST"};
 
 	Parser p = Parser();
-	std::vector<double> result = p.parse(v1);
+	std::vector<double> result = p.parse(v1);*/
+
 	//slice tag reordering nums
+
+	Tokenizer tokenizer = Tokenizer();
+	Parser parser = Parser();
+	Engine engine = Engine(tokenizer, parser);
+
+	engine.run();
+
 	return 0;
 }
