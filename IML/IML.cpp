@@ -3,6 +3,11 @@
 #include "Tokenizer.h"
 #include "Parser.h"
 
+/*! \mainpage
+* \section intro_sec External resources
+* <a href="https://github.com/dragobaltov/IML">GitHub Repository</a>
+*/
+
 int main()
 {
 	Tokenizer tokenizer = Tokenizer();
