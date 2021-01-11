@@ -1,6 +1,7 @@
 #pragma once
 #include "AggTag.h"
 
+/*!Returns the last value given*/
 class AggLstTag : public AggTag
 {
 protected:

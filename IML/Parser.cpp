@@ -1,6 +1,7 @@
 #include "Parser.h"
 #include "TagsFactory.h"
 #include "Validator.h"
+#include "StringErrors.h"
 #include <exception>
 
 void Parser::deleteTag()
@@ -9,8 +10,9 @@ void Parser::deleteTag()
 	tagsStack.pop();
 }
 
-std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
+std::vector<std::vector<double>> Parser::parse(const std::vector<std::string>& tokens)
 {
+	std::vector<std::vector<double>> results;
 	size_t tokensSize = tokens.size();
 	bool lastTokenWasOpeningTag = false;
 
@@ -27,7 +29,7 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 		{
 			if (i == tokensSize - 1)
 			{
-				throw std::exception("Missing tag argument!");
+				throw std::exception(StringErrors::MISSING_ARGUMENT.c_str());
 			}
 
 			Tag* tag = TagsFactory::createTagWithParam(tokens[i], tokens[i + 1]);
@@ -57,15 +59,15 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 		{
 			if (tagsStack.empty())
 			{
-				throw std::exception("Closing tag missing opening tag!");
+				throw std::exception(StringErrors::CLOSING_TAG_NOT_MATCHING_OPENING.c_str());
 			}
 			if (!tagsStack.top()->closingTagIsValid(tokens[i]))
 			{
-				throw std::exception("Invalid closing tag!");
+				throw std::exception(StringErrors::INVALID_CLOSING_TAG.c_str());
 			}
 			if (numsStack.empty())
 			{
-				throw std::exception("No input numbers provided!");
+				throw std::exception(StringErrors::MISSING_NUMBERS_INPUT.c_str());
 			}
 			
 
@@ -75,7 +77,14 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 
 			if (numsStack.empty())
 			{
-				numsStack.push(result);
+				if (tagsStack.empty())
+				{
+					results.push_back(result);
+				}
+				else
+				{
+					numsStack.push(result);
+				}
 			}
 			else
 			{
@@ -86,14 +95,14 @@ std::vector<double> Parser::parse(const std::vector<std::string>& tokens)
 		}
 		else
 		{
-			throw std::exception("Invalid input!");
+			throw std::exception(StringErrors::INVALID_INPUT.c_str());
 		}
 	}
 
-	if (!tagsStack.empty() || numsStack.size() != 1)
+	if (!tagsStack.empty())
 	{
-		throw std::exception("Invalid input!");
+		throw std::exception(StringErrors::INVALID_INPUT.c_str());
 	}
 
-	return numsStack.top();
+	return results;
 }

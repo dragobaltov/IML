@@ -7,8 +7,13 @@ class SrtDstTag : public SrtTag
 {
 	virtual std::vector<double> sort(const std::vector<double>& data) override
 	{
-		std::unordered_set<double> distinct(data.begin(), data.end());
-		std::vector<double> result(distinct.begin(), distinct.end());
+		std::vector<double> result(data.begin(), data.end());
+		std::unordered_set<double> s;
+
+		auto end = std::remove_if(result.begin(), result.end(),
+			[&s](double const& i) {return !s.insert(i).second; });
+
+		result.erase(end, result.end());
 
 		return result;
 	}

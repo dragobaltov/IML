@@ -10,5 +10,6 @@ private:
 
 	void deleteTag();
 public:
-	std::vector<double> parse(const std::vector<std::string>&);
+	/*!Receives the tags, their arguments and the numbers as strings. Converts them and calculates the result.*/
+	std::vector<std::vector<double>> parse(const std::vector<std::string>&);
 };

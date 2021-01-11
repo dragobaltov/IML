@@ -1,4 +1,5 @@
 #include "Tokenizer.h"
+#include "StringErrors.h"
 #include <algorithm>
 #include <iterator>
 
@@ -65,6 +66,11 @@ std::vector<std::string> Tokenizer::split(const std::string& input, const std::v
 		++i;
 	}
 
+	if (curr != "")
+	{
+		tokens.push_back(curr);
+	}
+
 	return tokens;
 }
 
@@ -82,10 +88,10 @@ std::vector<std::string> Tokenizer::tokenize(const std::string& input) const
 {
 	if (!leftArrowsMatchRightArrows(input))
 	{
-		throw std::exception("Opening tag arrows does not match closing tag arrows!");
+		throw std::exception(StringErrors::INVALID_ARROWS.c_str());
 	}
 
-	std::vector<char> delimiters = { '<', '>', ' ' };
+	std::vector<char> delimiters = { '<', '>', ' ', '\n'};
 	std::vector<std::string> tokens = split(input, delimiters);
 	std::vector<std::string> nonEmptyTokens = removeEmptyTokens(tokens);
 	

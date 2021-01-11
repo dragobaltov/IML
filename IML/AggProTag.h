@@ -1,6 +1,7 @@
 #pragma once
 #include "AggTag.h"
 
+/*!Calculates the product of the given values*/
 class AggProTag : public AggTag
 {
 protected:

@@ -1,7 +1,7 @@
 #pragma once
 #include "SrtTag.h"
 
-/*! Slices the list from the given index to the end*/
+/*! Slices the vector from the given index to the end*/
 class SrtSlcTag : public SrtTag
 {
 private:

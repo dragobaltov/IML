@@ -1,6 +1,7 @@
 #pragma once
 #include "AggTag.h"
 
+/*!Calculates the sum of the given values*/
 class AggSumTag : public AggTag
 {
 protected:

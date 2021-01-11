@@ -1,7 +1,7 @@
 #pragma once
 #include "SrtTag.h"
 
-/*! Reverses the list*/
+/*! Reverses the vector*/
 class SrtRevTag : public SrtTag
 {
 protected:

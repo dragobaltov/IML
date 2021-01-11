@@ -142,6 +142,7 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="IML.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="StringErrors.cpp" />
     <ClCompile Include="StringTags.cpp" />
     <ClCompile Include="TagsFactory.cpp" />
     <ClCompile Include="Tokenizer.cpp" />
@@ -164,11 +165,15 @@
     <ClInclude Include="SrtRevTag.h" />
     <ClInclude Include="SrtSlcTag.h" />
     <ClInclude Include="SrtTag.h" />
+    <ClInclude Include="StringErrors.h" />
     <ClInclude Include="StringTags.h" />
     <ClInclude Include="Tag.h" />
     <ClInclude Include="TagsFactory.h" />
     <ClInclude Include="Tokenizer.h" />
     <ClInclude Include="Validator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="input.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

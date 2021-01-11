@@ -1,6 +1,7 @@
 #pragma once
 #include "AggTag.h"
 
+/*!Calculates the average of the given values*/
 class AggAvgTag : public AggTag
 {
 protected:

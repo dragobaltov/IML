@@ -1,7 +1,7 @@
 #pragma once
 #include "MapTag.h"
 
-/*! Increments each value of the list with the given parameter*/
+/*! Increments each value of the vector with the given value*/
 class MapIncTag : public MapTag
 {
 protected:

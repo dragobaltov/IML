@@ -14,6 +14,7 @@
 
 #include "Validator.h"
 #include "StringTags.h"
+#include "StringErrors.h"
 
 Tag* TagsFactory::createTagWithNoParam(const std::string& tagStr)
 {
@@ -59,7 +60,7 @@ Tag* TagsFactory::createTagWithParam(const std::string& tagStr, const std::strin
 	{
 		if (!Validator::isRealNumberArgument(param))
 		{
-			//throw error
+			throw std::exception(StringErrors::INVALID_ARGUMENT.c_str());
 		}
 
 		double number = std::stod(param.substr(1, param.size() - 2));
@@ -69,7 +70,7 @@ Tag* TagsFactory::createTagWithParam(const std::string& tagStr, const std::strin
 	{
 		if (!Validator::isRealNumberArgument(param))
 		{
-			//throw error
+			throw std::exception(StringErrors::INVALID_ARGUMENT.c_str());
 		}
 
 		double number = std::stod(param.substr(1, param.size() - 2));
@@ -79,7 +80,7 @@ Tag* TagsFactory::createTagWithParam(const std::string& tagStr, const std::strin
 	{
 		if (!Validator::isSortingOrderArgument(param))
 		{
-			//throw error
+			throw std::exception(StringErrors::INVALID_ARGUMENT.c_str());
 		}
 
 		std::string order = param.substr(1, param.size() - 2);
@@ -89,7 +90,7 @@ Tag* TagsFactory::createTagWithParam(const std::string& tagStr, const std::strin
 	{
 		if (!Validator::isIntegerArgument(param))
 		{
-			//throw error
+			throw std::exception(StringErrors::INVALID_ARGUMENT.c_str());
 		}
 
 		int index = std::stoi(param.substr(1, param.size() - 2));

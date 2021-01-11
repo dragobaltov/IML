@@ -1,6 +1,7 @@
 #pragma once
 #include "AggTag.h"
 
+/*!Returns the first value given*/
 class AggFstTag : public AggTag
 {
 protected:
